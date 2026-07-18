@@ -1,0 +1,1 @@
+'mongodb+srv://haribalajee:<db_password>@ecom.0arm7af.mongodb.net/?appName=Ecom'

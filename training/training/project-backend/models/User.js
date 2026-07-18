@@ -1,0 +1,37 @@
+const mongoose = require('mongoose')
+
+const cartSchema = new mongoose.Schema({
+    product:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Product',
+        required:true
+    },
+    quantity:{
+        type:Number,
+        default:1
+    }
+})
+const userSchema = new mongoose.Schema({
+    username:{
+        type:String,
+        required:true,
+        uniqure:true
+    },
+    email:{
+        type:String,
+        required:true,
+        uniqure:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    role:{
+        type:String,
+        enum:['admin','user'],
+        default:'user'
+    },
+    cart:[cartSchema]
+},{timestamps:true})
+
+module.exports = mongoose.model('Used',userSchema)
